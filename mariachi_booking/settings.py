@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import sys
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +27,10 @@ SECRET_KEY = 'h=in%5-fvge-aqtj^8h$yw&=6l56&=7qi@_xz(e3@makwtx4*7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'mariachi-booking.herokuapp.com'
+]
 
 
 # Application definition
@@ -47,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mariachi_booking.urls'
@@ -74,10 +80,7 @@ WSGI_APPLICATION = 'mariachi_booking.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
@@ -113,8 +116,18 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Forcing https in deployment
+if os.environ.get('ENABLE_HTTPS'):
+    SECURE_SSL_REDIRECT = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Covers regular testing and django-coverage
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+    STATICFILES_STORAGE = None

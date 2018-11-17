@@ -1,0 +1,49 @@
+version: "3.6"
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+
+services:
+  # db service
+  postgres:
+    image: postgres:10.4-alpine
+    volumes:
+    # Mount the postgres data volume
+    - postgres_data:/var/lib/postgresql/data
+    # Mount the database init scripts:
+    - ./db/init:/docker-entrypoint-initdb.d
+    # Mount the database dumps folder:
+    - ./db/dumps:/db/dumps
+    # Mount the 'dumpdb' script
+    - ./bin/dumpdb:/bin/dumpdb:ro
+    # Mount the 'restoredb' script
+    - ./bin/restoredb:/bin/restoredb:ro
+    networks:
+    - backend
+    ports:
+    - published: ${BOOKING_POSTGRES_PORT:-5432}
+      target: 5432
+    environment:
+      POSTGRES_PASSWORD: 3x4mpl3
+      LC_ALL: C.UTF-8
+  # web service
+  web: &app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+    - .:/app
+    ports:
+    - published: ${BOOKING_WEB_PORT:-8000}
+      target: 8000
+    depends_on:
+    - postgres
+    networks:
+    - backend
+    environment: &app_env
+      DEBUG: 'True'
+      DATABASE_URL: postgres://postgres:3x4mpl3@postgres:5432/booking_development
