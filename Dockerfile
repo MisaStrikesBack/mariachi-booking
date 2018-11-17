@@ -68,11 +68,6 @@ FROM development AS builder
 # 2: Copy the rest of the app code:
 COPY . /app
 
-# 3: Compile SASS & collect the static files:
-RUN rm -rf /app/static \
- && python manage.py compilescss \
- && python manage.py collectstatic --ignore=*.scss
-
 # IV: Deployable stage: ========================================================
 # In this stage, we build the final, deployable Docker image, which will be
 # smaller than the images generated on previous stages:
