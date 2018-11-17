@@ -8,5 +8,7 @@ WORKDIR /app
 ADD requirements.txt /app/
 # installing python dependencies
 RUN pip install -r requirements.txt
+# adding the files
+ADD . /app/
 # rinning the server
 CMD [ "uwsgi", "--ini", "/app/uwsgi.ini" ]
