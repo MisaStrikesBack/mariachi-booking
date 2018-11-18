@@ -31,7 +31,10 @@ ALLOWED_HOSTS = [
     'localhost',
     'mariachi-booking.herokuapp.com'
 ]
-
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_USE_SESSIONS = True
+USE_X_FORWARDED_HOST = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 # Application definition
 
@@ -120,6 +123,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 20
+}
+
 # Forcing https in deployment
 if os.environ.get('ENABLE_HTTPS'):
     SECURE_SSL_REDIRECT = True
@@ -129,6 +140,7 @@ if os.environ.get('ENABLE_HTTPS'):
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
