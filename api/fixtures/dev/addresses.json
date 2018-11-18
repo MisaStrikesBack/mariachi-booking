@@ -1,0 +1,22 @@
+[
+  {
+    "model": "api.address",
+    "pk": 1,
+    "fields": {
+      "street": "Calle oscura",
+      "neighborhood": "Colonia luminosa",
+      "post_code": "023452",
+      "city": 1
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 2,
+    "fields": {
+      "street": "broad street",
+      "neighborhood": "narrow district",
+      "post_code": "86754",
+      "city": 2
+    }
+  }
+]

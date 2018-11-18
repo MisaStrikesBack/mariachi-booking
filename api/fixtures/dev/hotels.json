@@ -1,0 +1,20 @@
+[
+  {
+    "model": "api.hotel",
+    "pk": 1,
+    "fields": {
+      "name": "Hotel Rio Grande",
+      "rating": 3.5,
+      "address": 1
+    }
+  },
+  {
+    "model": "api.hotel",
+    "pk": 2,
+    "fields": {
+      "name": "Hotel Puerta Roja",
+      "rating": 4.5,
+      "address": 2
+    }
+  }
+]
