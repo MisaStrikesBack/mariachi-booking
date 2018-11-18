@@ -125,11 +125,16 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
+        'rest_framework.authentication.TokenAuthentication', ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 20
 }
+
+# enabling sessions in the drf ui
+if DEBUG is True:
+    REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'] = (
+        REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'] +
+        ('api.utils.csrf.NoCsrfSessionAuthentication', ))
 
 # Forcing https in deployment
 if os.environ.get('ENABLE_HTTPS'):

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$120000$6HXX4t2nc1Vr$BBb+Ue/0tB2dwGURLl32z18ClxjYyPA7fccO6UINU3k=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "customer@booking.mx",
+      "first_name": "Customer",
+      "last_name": "User",
+      "email": "customer@booking.mx",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-02-07T01:49:55.961Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$120000$peFNPLhe1az8$xW26ZGxL1DkUtgrFpa8J2e8um9zme2WO16BJ1yZAn8Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "hotel_staff@booking.mx",
+      "first_name": "Hotel Staff",
+      "last_name": "User",
+      "email": "hotel_staff@booking.mx",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-02-07T01:49:55.961Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.userprofile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "phone": "2244335522",
+      "group": 2
+    }
+  },
+  {
+    "model": "api.userprofile",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "phone": "8877669988",
+      "group": 1
+    }
+  }
+]
