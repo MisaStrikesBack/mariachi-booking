@@ -1,0 +1,16 @@
+[
+  {
+    "model": "api.group",
+    "pk": 1,
+    "fields": {
+      "name": "hotel staff"
+    }
+  },
+  {
+    "model": "api.group",
+    "pk": 2,
+    "fields": {
+      "name": "customer"
+    }
+  }
+]
