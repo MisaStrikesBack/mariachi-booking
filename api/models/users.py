@@ -6,6 +6,8 @@ from django.db import models
 
 from django.conf import settings
 
+from api.models.estate import Hotel
+
 
 class Group(models.Model):
     """
@@ -28,3 +30,8 @@ class UserProfile(models.Model):
     group = models.ForeignKey(Group,
                               related_name='users',
                               on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel,
+                              related_name='users',
+                              on_delete=models.CASCADE,
+                              null=True,
+                              blank=True)

@@ -1,0 +1,18 @@
+[
+  {
+    "model": "api.city",
+    "pk": 1,
+    "fields": {
+      "name": "Thingtown",
+      "country": 124
+    }
+  },
+  {
+    "model": "api.city",
+    "pk": 2,
+    "fields": {
+      "name": "Cosaltepec",
+      "country": 34
+    }
+  }
+]

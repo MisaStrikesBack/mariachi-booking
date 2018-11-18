@@ -1,0 +1,38 @@
+[
+  {
+    "model": "api.room",
+    "pk": 1,
+    "fields": {
+      "number": "101",
+      "price": 150.20,
+      "hotel": 1
+    }
+  },
+  {
+    "model": "api.room",
+    "pk": 2,
+    "fields": {
+      "number": "204",
+      "price": 250.20,
+      "hotel": 1
+    }
+  },
+  {
+    "model": "api.room",
+    "pk": 3,
+    "fields": {
+      "number": "304",
+      "price": 350.20,
+      "hotel": 2
+    }
+  },
+  {
+    "model": "api.room",
+    "pk": 4,
+    "fields": {
+      "number": "404",
+      "price": 450.20,
+      "hotel": 2
+    }
+  }
+]

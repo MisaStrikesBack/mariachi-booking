@@ -26,6 +26,9 @@ class Room(models.Model):
     Room model
     """
     number = models.CharField(max_length=30)
+    description = models.TextField(max_length=250,
+                                   null=True,
+                                   blank=True)
     floor = models.CharField(max_length=10,
                              null=True,
                              blank=True)

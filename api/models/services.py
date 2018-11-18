@@ -6,7 +6,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from api.constants import STATUS_OPTIONS
-from api.models import Hotel, Room
+from api.models.estate import Hotel, Room
 
 
 class Reservation(models.Model):

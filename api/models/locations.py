@@ -29,7 +29,7 @@ class Address(models.Model):
     """
     street = models.CharField(max_length=50)
     neighborhood = models.CharField(max_length=50)
-    post_code = models.CharField(max_length=50)
+    post_code = models.CharField(max_length=15)
     city = models.ForeignKey(City,
                              related_name='addresses',
                              on_delete=models.CASCADE)

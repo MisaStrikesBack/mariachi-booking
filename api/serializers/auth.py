@@ -8,6 +8,9 @@ from rest_framework import serializers, status
 from rest_framework.exceptions import APIException
 
 from api.models import Group, UserProfile
+from api.error_messages import (
+    INCLUDE_EMAIL, SHORTER_EMAIL, VALID_EMAIL, SUBMIT_PASSWORD, VALID_PASSWORD,
+    EMAIL_IN_USE, INVALID_GROUP, UNMATCHING_PASSWORDS)
 
 
 class SignInSerializer(serializers.Serializer):
@@ -17,18 +20,18 @@ class SignInSerializer(serializers.Serializer):
     email = serializers.EmailField(
         max_length=60,
         error_messages={
-            'required': "Please include email",
-            'blank': "Please include email",
-            'max_length': "Please use a shorter email",
-            'invalid': "Please use a valid email"
+            'required': INCLUDE_EMAIL,
+            'blank': INCLUDE_EMAIL,
+            'max_length': SHORTER_EMAIL,
+            'invalid': VALID_EMAIL
         }
     )
     password = serializers.CharField(
         min_length=4,
         max_length=40,
         error_messages={
-            'required': "Please include password",
-            'blank': "Please include a valid password"
+            'required': SUBMIT_PASSWORD,
+            'blank': VALID_PASSWORD
         }
     )
 
@@ -56,7 +59,7 @@ class SignUpSerializer(serializers.ModelSerializer):
         email validator
         """
         if User.objects.filter(email=value).exists():
-            raise serializers.ValidationError("The mail is already in use")
+            raise serializers.ValidationError(EMAIL_IN_USE)
         return value
 
     def validate_group(self, value):
@@ -64,7 +67,7 @@ class SignUpSerializer(serializers.ModelSerializer):
         Group validator
         """
         if not Group.objects.filter(pk=value).exists():
-            raise serializers.ValidationError("Group does not exist")
+            raise serializers.ValidationError(INVALID_GROUP)
         return value
 
     def create(self, validated_data):
@@ -110,4 +113,4 @@ class UpdatePasswordSerializer(serializers.Serializer):
         if (self.initial_data['new_password'] ==
                 self.initial_data['confirm_password']):
             return value
-        raise serializers.ValidationError("Passwords does not match")
+        raise serializers.ValidationError(UNMATCHING_PASSWORDS)
