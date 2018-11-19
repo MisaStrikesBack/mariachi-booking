@@ -1,0 +1,13 @@
+[
+  {
+    "model": "api.reservation",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "room": 2,
+      "checkin_date": "2018-11-07",
+      "checkout_date": "2018-11-09",
+      "comment": "Quiero toallas extra"
+    }
+  }
+]

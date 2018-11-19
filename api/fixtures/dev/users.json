@@ -50,7 +50,8 @@
     "fields": {
       "user": 2,
       "phone": "8877669988",
-      "group": 1
+      "group": 1,
+      "hotel": 1
     }
   }
 ]
