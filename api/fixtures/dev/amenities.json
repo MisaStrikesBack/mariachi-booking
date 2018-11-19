@@ -1,0 +1,90 @@
+[
+  {
+    "model": "api.amenitytype",
+    "pk": 1,
+    "fields": {
+      "name": "aire acondicionado",
+      "description": "Aire frio"
+    }
+  },
+  {
+    "model": "api.amenitytype",
+    "pk": 2,
+    "fields": {
+      "name": "Tv",
+      "description": "Televisión"
+    }
+  },
+  {
+    "model": "api.amenitytype",
+    "pk": 3,
+    "fields": {
+      "name": "Cable",
+      "description": "Televisión por cable"
+    }
+  },
+  {
+    "model": "api.amenitytype",
+    "pk": 4,
+    "fields": {
+      "name": "Bañera",
+      "description": "Bañera pa' bañarse"
+    }
+  },
+  {
+    "model": "api.amenitytype",
+    "pk": 5,
+    "fields": {
+      "name": "Frigobar",
+      "description": "Refri chiquito"
+    }
+  },
+  {
+    "model": "api.amenity",
+    "pk": 1,
+    "fields": {
+      "amenity_type": 3,
+      "room": 1
+    }
+  },
+  {
+    "model": "api.amenity",
+    "pk": 2,
+    "fields": {
+      "amenity_type": 1,
+      "room": 1
+    }
+  },
+  {
+    "model": "api.amenity",
+    "pk": 3,
+    "fields": {
+      "amenity_type": 5,
+      "room": 2
+    }
+  },
+  {
+    "model": "api.amenity",
+    "pk": 4,
+    "fields": {
+      "amenity_type": 2,
+      "room": 2
+    }
+  },
+  {
+    "model": "api.amenity",
+    "pk": 5,
+    "fields": {
+      "amenity_type": 4,
+      "room": 3
+    }
+  },
+  {
+    "model": "api.amenity",
+    "pk": 6,
+    "fields": {
+      "amenity_type": 3,
+      "room": 4
+    }
+  }
+]

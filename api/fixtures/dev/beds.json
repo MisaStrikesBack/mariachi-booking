@@ -1,0 +1,82 @@
+[
+  {
+    "model": "api.bedtype",
+    "pk": 1,
+    "fields": {
+      "name": "Individual",
+      "capacity": 1
+    }
+  },
+  {
+    "model": "api.bedtype",
+    "pk": 2,
+    "fields": {
+      "name": "Matrimonial",
+      "capacity": 2
+    }
+  },
+  {
+    "model": "api.bedtype",
+    "pk": 3,
+    "fields": {
+      "name": "Queen Size",
+      "capacity": 3
+    }
+  },
+  {
+    "model": "api.bedtype",
+    "pk": 4,
+    "fields": {
+      "name": "King Size",
+      "capacity": 4
+    }
+  },
+  {
+    "model": "api.bed",
+    "pk": 1,
+    "fields": {
+      "bed_type": 2,
+      "room": 1
+    }
+  },
+  {
+    "model": "api.bed",
+    "pk": 2,
+    "fields": {
+      "bed_type": 1,
+      "room": 1
+    }
+  },
+  {
+    "model": "api.bed",
+    "pk": 3,
+    "fields": {
+      "bed_type": 3,
+      "room": 2
+    }
+  },
+  {
+    "model": "api.bed",
+    "pk": 4,
+    "fields": {
+      "bed_type": 1,
+      "room": 2
+    }
+  },
+  {
+    "model": "api.bed",
+    "pk": 5,
+    "fields": {
+      "bed_type": 4,
+      "room": 3
+    }
+  },
+  {
+    "model": "api.bed",
+    "pk": 5,
+    "fields": {
+      "bed_type": 3,
+      "room": 4
+    }
+  }
+]
